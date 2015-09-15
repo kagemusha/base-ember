@@ -20,6 +20,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV.APP.SERVER = "http://localhost:3000";
     ENV.contentSecurityPolicy = {
       'default-src': "*",
       'connect-src': "*",
