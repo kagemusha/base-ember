@@ -1,7 +1,3 @@
-import Ember from 'ember';
-import DS from 'ember-data';
-import config from '../config/environment';
+import ActiveModelAdapter from 'active-model-adapter';
 
-export default DS.JSONAPIAdapter.extend({
-  host: config.APP.SERVER,
-});
+export default ActiveModelAdapter.extend();

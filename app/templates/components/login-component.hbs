@@ -1,0 +1,8 @@
+{{#if userService.isLoggedIn}}
+  <button {{action 'logout'}}>Logout</button>
+{{else}}
+  <h3>Login</h3>
+  <p>Email: {{input value=email autofocus=true}}</p>
+  <p>Password: {{input type='password' value=password}}</p>
+  <button {{action 'login'}}>Login</button>
+{{/if}}
