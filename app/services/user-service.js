@@ -28,7 +28,7 @@ export default Ember.Service.extend({
     });
   },
   register(email, password, passwordConfirmation) {
-    let session = this.get('session');
+    const session = this.get('session');
     return session.open('registration', {
       user: {
         email: email,

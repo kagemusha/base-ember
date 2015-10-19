@@ -9,11 +9,5 @@ export default Ember.Route.extend({
     accessDenied: function() {
       this.transitionTo('login');
     },
-    register() {
-      let email = this.get('email');
-      let pw = this.get('password');
-      let pwConfirm = this.get('passwordConfirmation');
-      this.get('userService').register(email, pw, pwConfirm);
-    }
   }
 });
