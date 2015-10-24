@@ -30,6 +30,9 @@ module.exports = function(environment) {
       'script-src': "* 'unsafe-inline'",
       'style-src': " 'self' 'unsafe-inline'"
     };
+    ENV['ember-cli-mirage'] = {
+      enabled: false
+    }
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -48,10 +51,7 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
   }
-
-  if (environment === 'production') {
-
+  if (environment === 'development') {
   }
-
   return ENV;
 };
