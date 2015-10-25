@@ -8,22 +8,24 @@ export default Ember.Service.extend({
     this.set('loggingIn', true);
     return session.open('application', {
       user: {
-        email: email,
-        password: password,
+        email,
+        password,
       }
     });
   },
   logout() {
-    if(this.get('loggingOut')) { return; }
+    if (this.get('loggingOut')) {
+      return;
+    }
     this.set('loggingOut', true);
 
     this.get('session').close('application').then(()=> {
-      //refine this on future so only leave if on authed routes.
-      //(could be studying public set
+      // refine this on future so only leave if on authed routes.
+      // (could be studying public set
       this.transitionToRoute('/');
-    }).catch (()=>{
+    }).catch(()=> {
       Ember.Logger.log('Logout failed');
-    }).finally(()=>{
+    }).finally(()=> {
       this.set('loggingOut', false);
     });
   },
@@ -31,11 +33,10 @@ export default Ember.Service.extend({
     const session = this.get('session');
     return session.open('registration', {
       user: {
-        email: email,
-        password: password,
-        password_confirmation: passwordConfirmation,
+        email,
+        password,
+        passwordConfirmation,
       }
     });
   }
-
 });

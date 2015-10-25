@@ -6,7 +6,7 @@ const LOGIN_URL = `${config.APP.SERVER}/users/sign_in`;
 
 export default Ember.Object.extend({
 
-  open: function(credentials) {
-    return emberAjaxRequest("POST", LOGIN_URL, credentials);
+  open(credentials) {
+    return emberAjaxRequest('POST', LOGIN_URL, credentials);
   }
 });

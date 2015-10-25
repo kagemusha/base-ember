@@ -6,7 +6,7 @@ export default Ember.Route.extend({
   password: null,
   passwordConfirmation: null,
   actions: {
-    accessDenied: function() {
+    accessDenied() {
       this.transitionTo('login');
     },
   }

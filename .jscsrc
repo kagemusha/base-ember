@@ -1,3 +1,6 @@
 {
-  "preset": "ember-suave"
+  "preset": "ember-suave",
+  "disallowTrailingComma": false,
+  "validateQuoteMarks": false,
+  "disallowSpacesInsideParentheses": false
 }

@@ -1,7 +1,7 @@
 export default {
   name: 'torii-session-on-adapter',
   after: 'torii-session',
-  initialize: function(container, app) {
+  initialize(container, app) {
     app.inject('adapter', 'session', 'service:session');
     app.inject('service:user-service', 'session', 'service:session');
   }

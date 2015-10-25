@@ -5,7 +5,7 @@ import config from 'base-ember/config/environment';
 const REGISTRATION_URL = `${config.APP.SERVER}/users/`;
 
 export default Ember.Object.extend({
-  open: function(credentials) {
+  open(credentials) {
     return emberAjaxRequest("POST", REGISTRATION_URL, credentials);
   }
 });

@@ -10,35 +10,35 @@ export default Ember.Object.extend({
   pushUserToStore(userData) {
     let store = this.get('store');
     store.pushPayload('user', userData);
-    //if this is json-api will be userData.data.id - may want to make this adapter aware
+    // if this is json-api will be userData.data.id - may want to make this adapter aware
     let userId = userData.user.id;
-    let user = store.peekRecord('user', userId);
+    const user = store.peekRecord('user', userId);
     this.set('currentUser', user);
     return user;
   },
   open(response) {
-    let user = this.pushUserToStore(response);
+    const user = this.pushUserToStore(response);
     window.localStorage.setItem('authenticationToken', user.get('authenticationToken'));
-    return Ember.RSVP.Promise.resolve({currentUser: user});
+    return Ember.RSVP.Promise.resolve({ currentUser: user });
   },
   fetch() {
-    let self = this;
-    return new Ember.RSVP.Promise((resolve, reject)=> {
+    const self = this;
+    return new Ember.RSVP.Promise( (resolve, reject)=> {
       let authenticationToken = window.localStorage.getItem('authenticationToken');
       if (!authenticationToken) {
         reject("No authenticationToken present");
       }
 
-      let success = (response)=>{
-        Ember.run(()=>{
-          let user = self.pushUserToStore(response);
+      const success = (response)=> {
+        Ember.run(()=> {
+          const user = self.pushUserToStore(response);
           window.localStorage.setItem('authenticationToken', user.get('authenticationToken'));
-          resolve({currentUser: user});
+          resolve({ currentUser: user });
         });
       };
 
-      let error = (jqxhr, status, error)=>{
-        Ember.run(()=>{
+      const error = (jqxhr, status, error)=> {
+        Ember.run(()=> {
           reject(error);
         });
       };
@@ -46,21 +46,21 @@ export default Ember.Object.extend({
       Ember.$.ajax({
         type: 'GET',
         url: CURRENT_USER_URL,
-        beforeSend: function(xhr){
-          xhr.setRequestHeader('Authorization', 'Bearer ' + authenticationToken);
+        beforeSend: (xhr)=> {
+          xhr.setRequestHeader('Authorization', `Bearer ${authenticationToken}`);
         },
-        success: success,
-        error: error,
+        success,
+        error,
         dataType: 'json'
       });
     });
   },
-  unloadRecords(){
-    const store = this.get('store');
-    //unload any user data when logout
+  unloadRecords() {
+    // unload any user data when logout
+    // const store = this.get('store');
   },
   close() {
-    return new Ember.RSVP.Promise((resolve, reject)=>{
+    return new Ember.RSVP.Promise((resolve, reject)=> {
       let authenticationToken = window.localStorage.getItem('authenticationToken');
 
       let success = ()=> {
@@ -68,14 +68,14 @@ export default Ember.Object.extend({
         this.unloadRecords();
         store.unloadRecord(this.get('currentUser'));
         this.set('currentUser', null);
-        Ember.run(()=>{
+        Ember.run(()=> {
           window.localStorage.removeItem('authenticationToken');
           resolve();
         });
       };
 
-      let error = (jqxhr, status, error)=>{
-        Ember.run(()=>{
+      let error = (jqxhr, status, error)=> {
+        Ember.run(()=> {
           reject(error);
         });
       };
@@ -83,11 +83,11 @@ export default Ember.Object.extend({
       Ember.$.ajax({
         type: "DELETE",
         url: LOGOUT_URL,
-        beforeSend: (xhr)=>{
-          xhr.setRequestHeader('Authorization', 'Bearer ' + authenticationToken);
+        beforeSend: (xhr)=> {
+          xhr.setRequestHeader('Authorization', `Bearer ${authenticationToken}`);
         },
-        success: success,
-        error: error,
+        success,
+        error,
         dataType: 'text'
       });
     });
