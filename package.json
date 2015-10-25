@@ -39,6 +39,7 @@
     "ember-data": "2.0.0",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.4",
+    "ember-modal-dialog": "0.8.1",
     "ember-resolver": "^2.0.2",
     "ember-suave": "1.2.2",
     "torii": "^0.6.1"
