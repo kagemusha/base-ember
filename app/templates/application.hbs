@@ -1,5 +1,12 @@
-{{partial "top-nav"}}
-
-<div id="content">
-  {{outlet}}
+<div class="wrapper">
+  {{partial "header"}}
+  <main>
+    <aside id="sidebar">
+      sidebar
+    </aside>
+    <section id="content">
+      {{outlet}}
+    </section>
+  </main>
+  <footer>Footer</footer>
 </div>

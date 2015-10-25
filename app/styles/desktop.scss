@@ -1,0 +1,162 @@
+@import "variables";
+@import "desktop-variables";
+@import "mixins";
+@import "desktop-mixins";
+
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
+
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: $header-height;
+  padding: 0;
+  width: 100%;
+
+  display: flex;
+  background: black;
+  color: white;
+  justify-content: space-between;
+  font-size: 12px;
+  button {
+    display: inline-block;
+    @include vertical-centered-container;
+    padding: 0;
+    text-transform: uppercase;
+    width: 120px;
+    color: black;
+    background: white;
+    border: none;
+  }
+  #title {
+    @include vertical-centered-container;
+    a {
+      font-size: 32px;
+    }
+  }
+  a.nav-link {
+    @include vertical-centered-container;
+    margin: 0 10px;
+    color: black;
+    text-transform: uppercase;
+    width: 80px;
+    font-size: 12px;
+    height: 50px;
+    text-align: center;
+  }
+}
+
+.nav-section {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  width: calc((100% - 40px)/3);
+}
+
+#top-nav-left {
+  justify-content: flex-start;
+}
+
+#top-nav-right {
+  justify-content: flex-end;
+}
+
+main {
+  width: 100%;
+  min-height: 200px;
+  margin-top: $header-height;
+  margin-bottom: $footer-height;
+
+  display: flex;
+  flex-flow: row;
+  background: #F5F5F5;
+  padding: 2px 18px;
+  h2 {
+    margin: 30px 0;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+#sidebar {
+  width: $sidebar-width;
+  height: 600px;
+  background: lightcyan;
+}
+#content {
+
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: $footer-height;
+  width: 100%;
+  background: lightgrey;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.li-link {
+  cursor: pointer;
+}
+
+.action-button {
+  padding: 1px 4px;
+}
+
+.btn-floating.btn-tiny {
+  width: 20px;
+  height: 20px;
+  i {
+    font-size: 1em;
+    line-height: 20px;
+  }
+}
+
+h2 {
+  font-size: 2.5em;
+  input[type=text] {
+    font-size: 0.8em;
+  }
+  .input-field tag {
+    top: 1.8rem;
+  }
+  small {
+    font-size: 50%;
+  }
+  .sub-header {
+    font-size: 0.5em;
+    color: darkgray;
+  }
+}
+
+html {
+  font-size: 16px;
+}
+
+
+.error-msg {
+  color: red;
+  font-weight: bold;
+}
+
