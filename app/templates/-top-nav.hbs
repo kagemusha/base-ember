@@ -1,0 +1,14 @@
+<div id="top-nav">
+  <div class="nav-section">
+    <div id="title">
+       {{link-to "Your app" "application"}}
+    </div>
+  </div>
+  <div id="top-nav-right" class="nav-section">
+    {{#if isLoggedIn}}
+      <button {{action 'logout'}}>Logout</button>
+    {{else}}
+      <button id="login-btn" {{action 'showModal' 'showLoginModal'}}>Login</button>
+    {{/if}}
+  </div>
+</div>
