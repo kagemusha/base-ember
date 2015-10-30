@@ -1,0 +1,23 @@
+import Ember from 'ember';
+import { module, test } from 'qunit';
+import startApp from '../helpers/start-app';
+import page from './pages/index';
+// import { setAuthToken } from './helpers';
+
+module('Acceptance | index', {
+  beforeEach() {
+    this.application = startApp();
+  },
+
+  afterEach() {
+    Ember.run(this.application, 'destroy');
+  }
+});
+
+test('visiting /', function(assert) {
+  page.visit();
+
+  andThen(function() {
+    assert.equal(currentPath(), 'index');
+  });
+});
