@@ -5,7 +5,7 @@ export default Ember.Route.extend({
   isLoggedIn: Ember.computed.readOnly("userService.isLoggedIn"),
 
   beforeModel() {
-    if (this.get('isLoggedIn')){
+    if (this.get('isLoggedIn')) {
       this.transitionTo('home');
     }
   },

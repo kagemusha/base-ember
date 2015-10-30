@@ -2,5 +2,6 @@
   "preset": "ember-suave",
   "disallowTrailingComma": false,
   "validateQuoteMarks": false,
-  "disallowSpacesInsideParentheses": false
+  "disallowSpacesInsideParentheses": false,
+  "requireSpaceBeforeBlockStatements": false
 }
