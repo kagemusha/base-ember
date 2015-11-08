@@ -4,5 +4,7 @@
   "validateQuoteMarks": false,
   "disallowSpacesInsideParentheses": false,
   "requireSpaceBeforeBlockStatements": false,
-  "requireCamelCaseOrUpperCaseIdentifiers": false
+  "requireCamelCaseOrUpperCaseIdentifiers": false,
+  "requireSpaceAfterLineComment": false,
+  "requireArrayDestructuring": false
 }
