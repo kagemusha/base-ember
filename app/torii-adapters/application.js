@@ -65,10 +65,11 @@ export default Ember.Object.extend({
 
       let success = ()=> {
         const store = this.get('store');
-        this.unloadRecords();
-        store.unloadRecord(this.get('currentUser'));
-        this.set('currentUser', null);
         Ember.run(()=> {
+          this.unloadRecords();
+          store.unloadRecord(this.get('currentUser'));
+          this.set('currentUser', null);
+          //not sure why above lines must be in this run loop, but tests object otherwise (says autorun turned off in testing...)
           window.localStorage.removeItem('authenticationToken');
           resolve();
         });
