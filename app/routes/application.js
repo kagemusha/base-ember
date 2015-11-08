@@ -1,10 +1,7 @@
 import Ember from 'ember';
+import UserActions from '../mixins/user-actions';
 
-export default Ember.Route.extend({
-  userService: Ember.inject.service(),
-  email: null,
-  password: null,
-  passwordConfirmation: null,
+export default Ember.Route.extend(UserActions, {
   actions: {
     accessDenied() {
       this.transitionTo('login');

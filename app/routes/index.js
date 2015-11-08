@@ -1,12 +1,11 @@
 import Ember from 'ember';
+import Unauthenticated from '../mixins/unauthenticated';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(Unauthenticated, {
   userService: Ember.inject.service(),
   isLoggedIn: Ember.computed.readOnly("userService.isLoggedIn"),
 
   beforeModel() {
-    if (this.get('isLoggedIn')) {
-      this.transitionTo('home');
-    }
+    this.transitionIfAuthenticated();
   },
 });

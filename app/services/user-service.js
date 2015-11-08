@@ -19,15 +19,7 @@ export default Ember.Service.extend({
     }
     this.set('loggingOut', true);
 
-    this.get('session').close('application').then(()=> {
-      // refine this on future so only leave if on authed routes.
-      // (could be studying public set
-      this.transitionToRoute('/');
-    }).catch(()=> {
-      Ember.Logger.log('Logout failed');
-    }).finally(()=> {
-      this.set('loggingOut', false);
-    });
+    return this.get('session').close('application');
   },
   register(email, password, passwordConfirmation) {
     const session = this.get('session');

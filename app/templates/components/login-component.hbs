@@ -2,7 +2,7 @@
   <button {{action 'logout'}}>Logout</button>
 {{else}}
   <h3>Login</h3>
-  <p>Email: {{input value=email autofocus=true}}</p>
-  <p>Password: {{input type='password' value=password}}</p>
+  <p>Email: {{input class='email' value=email autofocus=true}}</p>
+  <p>Password: {{input class='password' type='password' value=password}}</p>
   <button {{action 'login'}}>Login</button>
 {{/if}}

@@ -1,5 +1,8 @@
 import Ember from 'ember';
+import Unauthenticated from '../mixins/unauthenticated';
 
-export default Ember.Route.extend({
-  session: Ember.inject.service('session'),
+export default Ember.Route.extend(Unauthenticated, {
+  beforeModel() {
+    this.transitionIfAuthenticated();
+  },
 });
