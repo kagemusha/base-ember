@@ -21,3 +21,11 @@ test('visiting /', function(assert) {
     assert.equal(currentPath(), 'index');
   });
 });
+
+test('log in correctly', (assert)=> {
+  page.visit();
+
+  andThen(()=> {
+    assert.equal(currentPath(), 'index');
+  });
+});

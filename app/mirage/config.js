@@ -1,5 +1,14 @@
-export default function() {
+import Mirage from 'ember-cli-mirage';
+const TOKEN = 'my-token';
 
+export default function() {
+  this.get('/users/me', (schema, request)=>{
+    return new Mirage.Response(401, {message: 'Unauthorized'});
+  });
+
+  this.post('/users/sign_in', (schema, request)=>{
+    return {"user":{id:1, email:"t@t.com", authentication_token: TOKEN }};
+  });
   // These comments are here to help you get started. Feel free to delete them.
 
   /*
