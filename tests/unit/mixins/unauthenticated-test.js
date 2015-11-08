@@ -6,7 +6,7 @@ module('Unit | Mixin | unauthenticated');
 
 // Replace this with your real tests.
 test('it works', function(assert) {
-  var UnauthenticatedObject = Ember.Object.extend(UnauthenticatedMixin);
-  var subject = UnauthenticatedObject.create();
+  const UnauthenticatedObject = Ember.Object.extend(UnauthenticatedMixin);
+  const subject = UnauthenticatedObject.create();
   assert.ok(subject);
 });

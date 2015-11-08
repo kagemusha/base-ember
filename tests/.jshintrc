@@ -40,7 +40,6 @@
   "noempty": false,
   "nonew": false,
   "nomen": false,
-  "onevar": false,
   "plusplus": false,
   "regexp": false,
   "undef": true,

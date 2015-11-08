@@ -3,5 +3,6 @@
   "disallowTrailingComma": false,
   "validateQuoteMarks": false,
   "disallowSpacesInsideParentheses": false,
-  "requireSpaceBeforeBlockStatements": false
+  "requireSpaceBeforeBlockStatements": false,
+  "requireCamelCaseOrUpperCaseIdentifiers": false
 }

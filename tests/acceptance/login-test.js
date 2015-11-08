@@ -4,11 +4,11 @@ import startApp from 'base-ember/tests/helpers/start-app';
 import page from './pages/login';
 
 module('Acceptance | login', {
-  beforeEach: function() {
+  beforeEach() {
     this.application = startApp();
   },
 
-  afterEach: function() {
+  afterEach() {
     Ember.run(this.application, 'destroy');
   }
 });
@@ -19,9 +19,7 @@ test('successful login', (assert)=> {
   page.fillInPassword('tester99');
   page.clickButton('Login');
   andThen(()=> {
-    debugger
     assert.equal(currentURL(), '/home');
   });
 });
-
 

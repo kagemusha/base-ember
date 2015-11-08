@@ -14,10 +14,10 @@ module('Acceptance | index', {
   }
 });
 
-test('visiting /', function(assert) {
+test('visiting /', (assert)=> {
   page.visit();
 
-  andThen(function() {
+  andThen(()=> {
     assert.equal(currentPath(), 'index');
   });
 });
@@ -29,3 +29,4 @@ test('log in correctly', (assert)=> {
     assert.equal(currentPath(), 'index');
   });
 });
+
